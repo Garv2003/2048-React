@@ -1,20 +1,10 @@
-import { useEffect, useState } from "react";
+import { letters } from "../constants/data";
 
 export default function Keypad({
   usedKeys,
 }: {
   usedKeys: { [key: string]: string };
 }) {
-  const [letters, setLetters] = useState<{ key: string }[] | null>(null);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/letters")
-      .then((res) => res.json())
-      .then((json) => {
-        setLetters(json);
-      });
-  }, []);
-
   return (
     <div className="keypad">
       {letters &&

@@ -1,5 +1,4 @@
-{
-  "letters": [
+const letters = [
     { "key": "a" },
     { "key": "b" },
     { "key": "c" },
@@ -26,8 +25,9 @@
     { "key": "x" },
     { "key": "y" },
     { "key": "z" }
-  ],
-  "solutions": [
+]
+
+const solutions = [
     { "id": 1, "word": "ninja" },
     { "id": 2, "word": "spade" },
     { "id": 3, "word": "pools" },
@@ -43,5 +43,6 @@
     { "id": 13, "word": "bling" },
     { "id": 14, "word": "coins" },
     { "id": 15, "word": "hello" }
-  ]
-}
+]
+
+export { solutions, letters }

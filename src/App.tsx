@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Wordle } from "./components";
+import { solutions } from "./constants/data";
 
 const App = () => {
   const [solution, setSolution] = useState<{ id: string; word: string } | null>(
@@ -7,18 +8,15 @@ const App = () => {
   );
 
   useEffect(() => {
-    fetch("http://localhost:3000/solutions")
-      .then((response) => response.json())
-      .then((data) => {
-        const randomSolution = data[Math.floor(Math.random() * data.length)];
-        setSolution(randomSolution.word);
-      });
-  }, [setSolution]);
+    const randomIndex = Math.floor(Math.random() * solutions.length);
+    const { id, word } = solutions[randomIndex];
+    setSolution({ id: id.toString(), word });
+  }, []);
 
   return (
     <div className="App">
       <h1>Wordle</h1>
-      {solution && <Wordle solution={solution} />}
+      {solution && <Wordle solution={solution.word} />}
     </div>
   );
 };
